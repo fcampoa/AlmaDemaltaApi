@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6fbc6a1f68b54aa780b37cdba96abe75d63c00a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
