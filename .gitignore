@@ -14,6 +14,10 @@ x86/
 [Aa]ppPackages/
 [Aa]rtifacts/
 
+# Build artifacts
+obj/
+bin/
+
 # .NET
 project.lock.json
 project.fragment.lock.json
