@@ -1,7 +1,9 @@
 namespace AlmaDeMalta.Api.Endpoints;
+
+using AlmaDeMalta.Common.Services.Services;
 using FastEndpoints;
 
-public class ExampleEndpoint : EndpointWithoutRequest
+public class ExampleEndpoint(IProductService productService) : EndpointWithoutRequest
 {
     public override void Configure()
     {
@@ -11,11 +13,7 @@ public class ExampleEndpoint : EndpointWithoutRequest
 
     public override async Task HandleAsync( CancellationToken ct)
     {
-        var response = new
-        {
-            Message = "Hello, World!"
-        };
-
-        await SendAsync(response, cancellation: ct);
+        var products = await productService.GetAllAsync();
+        await SendAsync(products, cancellation: ct);
     }
 }
