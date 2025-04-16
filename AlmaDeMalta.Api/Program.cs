@@ -1,4 +1,6 @@
+using AlmaDeMalta.Common.Services;
 using FastEndpoints;
+using AlmaDeMalta.Common.DatabaseConnection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +9,11 @@ builder.Services.AddFastEndpoints();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+var services = builder.Services;
 
+services.AddOpenApi()
+    .UseMongoConfig(builder.Configuration)
+    .RegisterServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj" />
+    <ProjectReference Include="..\..\Common\AlmaDeMalta.Common.DatabaseConnection\AlmaDeMalta.Common.DatabaseConnection.csproj" />
     <ProjectReference Include="..\..\common\AlmaDeMalta.Common.Services\AlmaDeMalta.Common.Services.csproj" />
   </ItemGroup>
 
