@@ -1,6 +1,6 @@
 namespace AlmaDeMalta.Api.Endpoints;
 
-using AlmaDeMalta.Common.Services.Services;
+using AlmaDeMalta.Api.Services;
 using FastEndpoints;
 
 public class ExampleEndpoint(IProductService productService) : EndpointWithoutRequest
