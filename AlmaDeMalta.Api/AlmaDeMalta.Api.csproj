@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj" />
+    <ProjectReference Include="..\..\Common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj" />
     <ProjectReference Include="..\..\Common\AlmaDeMalta.Common.DatabaseConnection\AlmaDeMalta.Common.DatabaseConnection.csproj" />
   </ItemGroup>
 

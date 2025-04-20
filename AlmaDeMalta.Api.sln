@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlmaDeMalta.Api", "AlmaDeMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.api", "AlmaDeMalta.Api\AlmaDeMalta.api.csproj", "{994E928A-C30D-4EEE-A918-7EC32EF5E92E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Common.Contracts", "..\common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj", "{A5215B15-6DB6-4BF5-B14F-6E1F197B837F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Common.Contracts", "..\Common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj", "{A5215B15-6DB6-4BF5-B14F-6E1F197B837F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Common.DatabaseConnection", "..\Common\AlmaDeMalta.Common.DatabaseConnection\AlmaDeMalta.Common.DatabaseConnection.csproj", "{787CA946-A3C9-4BD1-ACD6-5DF6567715DB}"
 EndProject
