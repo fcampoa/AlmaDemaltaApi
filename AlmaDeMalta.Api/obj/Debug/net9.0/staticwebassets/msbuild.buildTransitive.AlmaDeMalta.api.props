@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\AlmaDeMalta.api.props" />
+</Project>

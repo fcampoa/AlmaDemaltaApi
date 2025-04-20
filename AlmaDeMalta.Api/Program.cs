@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Agregar servicios de FastEndpoints
 builder.Services.AddFastEndpoints();
 
+
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 var services = builder.Services;
