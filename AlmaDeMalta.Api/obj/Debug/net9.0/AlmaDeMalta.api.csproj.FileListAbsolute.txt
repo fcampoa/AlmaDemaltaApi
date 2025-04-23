@@ -32,7 +32,6 @@ C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\static
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.AlmaDeMalta.api.props
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.AlmaDeMalta.api.props
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMa.6152FAA8.Up2Date
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMalta.api.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\refint\AlmaDeMalta.api.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMalta.api.pdb
@@ -51,4 +50,4 @@ C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\Snappi
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\AlmaDeMalta.Common.DatabaseConnection.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\AlmaDeMalta.Common.DatabaseConnection.pdb
-C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMa.615779C8.Up2Date

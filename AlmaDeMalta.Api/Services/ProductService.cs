@@ -23,12 +23,7 @@ public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork) : IProductService
             var product = mapper.ToEntity(request);
             product.Id = Guid.NewGuid();
             await unitOfWork.ProductRepository.CreateAsync(product);
-
-            return Response.CreateBuilder()
-                           .WithBody(product.Id)
-                           .WithStatus(201)
-                           .WithSuccessMessage(SuccessCreateMessage)
-                           .Build();
+            return Response.CreateBuilder().WithBody(product.Id).WithStatus(201).WithSuccessMessage(SuccessCreateMessage).Build();
         }
         catch (Exception ex)
         {
