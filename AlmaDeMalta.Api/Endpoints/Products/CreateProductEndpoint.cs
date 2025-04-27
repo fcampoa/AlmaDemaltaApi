@@ -8,7 +8,7 @@ namespace AlmaDeMalta.api.Endpoints.Products;
     {
     public override void Configure()
     {
-        Post("api/products");
+        Post("products");
         AllowAnonymous();
         Description(x => x
             .WithName("Create Product")

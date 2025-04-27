@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60dcf16bc7e8cfa5c15be0ebc4cc470826b1e938")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa5150baa576cb52743def5b7494eca9bd5d3029")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlmaDeMalta.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

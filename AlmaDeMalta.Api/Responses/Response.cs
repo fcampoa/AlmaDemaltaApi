@@ -1,11 +1,13 @@
-﻿namespace AlmaDeMalta.api.Responses;
-public record Response(object Body, int Status, string SuccessMessage, string ErrorMessage)
+﻿using System.Net;
+
+namespace AlmaDeMalta.api.Responses;
+public record Response(object Body, HttpStatusCode Status, string SuccessMessage, string ErrorMessage)
 {
     // Clase Builder anidada para construir respuestas
     public class Builder
     {
-        private object _body;
-        private int _status = 200; // Valor por defecto
+        private object _body = new object(); // Inicialización para evitar CS8618
+        private HttpStatusCode _status = HttpStatusCode.OK; // Valor por defecto
         private string _successMessage = string.Empty;
         private string _errorMessage = string.Empty;
 
@@ -15,7 +17,7 @@ public record Response(object Body, int Status, string SuccessMessage, string Er
             return this;
         }
 
-        public Builder WithStatus(int status)
+        public Builder WithStatus(HttpStatusCode status) // Cambiar el tipo de parámetro a HttpStatusCode
         {
             _status = status;
             return this;
@@ -36,13 +38,13 @@ public record Response(object Body, int Status, string SuccessMessage, string Er
         // Métodos de utilidad para respuestas comunes
         public Builder AsSuccess(string message = "")
         {
-            _status = 200;
+            _status = HttpStatusCode.OK; // Usar HttpStatusCode en lugar de int
             _successMessage = message;
             _errorMessage = string.Empty;
             return this;
         }
 
-        public Builder AsError(string message = "", int status = 400)
+        public Builder AsError(string message = "", HttpStatusCode status = HttpStatusCode.BadRequest) // Cambiar el tipo de parámetro a HttpStatusCode
         {
             _status = status;
             _errorMessage = message;
@@ -52,12 +54,12 @@ public record Response(object Body, int Status, string SuccessMessage, string Er
 
         public Builder AsNotFound(string message = "Resource not found")
         {
-            return AsError(message, 404);
+            return AsError(message, HttpStatusCode.NotFound); // Usar HttpStatusCode.NotFound
         }
 
         public Builder AsServerError(string message = "Internal server error")
         {
-            return AsError(message, 500);
+            return AsError(message, HttpStatusCode.InternalServerError); // Usar HttpStatusCode.InternalServerError
         }
 
         public Response Build()
@@ -73,7 +75,7 @@ public record Response(object Body, int Status, string SuccessMessage, string Er
     }
 
     // Métodos útiles para la respuesta
-    public bool IsSuccess => Status >= 200 && Status < 300;
+    public bool IsSuccess => (int)Status >= 200 && (int)Status < 300; // Convertir HttpStatusCode a int para la comparación
 
     public bool IsError => !IsSuccess;
 }

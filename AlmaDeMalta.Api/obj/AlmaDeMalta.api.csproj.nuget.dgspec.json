@@ -100,7 +100,7 @@
         "projectName": "AlmaDeMalta.Common.Contracts",
         "projectPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Common\\AlmaDeMalta.Common.Contracts\\AlmaDeMalta.Common.Contracts.csproj",
         "packagesPath": "C:\\Users\\felix\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Common\\AlmaDeMalta.Common.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\common\\AlmaDeMalta.Common.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "WblcI4jRmG7Il2gYsAv84n57YwBsV+rx85lX1kO/nZs=",
-  "Source": "AlmaDeMalta.Api",
-  "BasePath": "_content/AlmaDeMalta.Api",
+  "Hash": "c3hAB407daIavMqAz34jq2i/W84hH+3AeWS4UvGrEmc=",
+  "Source": "AlmaDeMalta.api",
+  "BasePath": "_content/AlmaDeMalta.api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

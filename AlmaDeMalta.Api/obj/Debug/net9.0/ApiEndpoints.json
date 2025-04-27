@@ -51,18 +51,25 @@
   {
     "ContainingType": "FastEndpoints.MainExtensions\u002B\u003C\u003Ec",
     "Method": "\u003CMapFastEndpoints\u003Eb__2_1",
-    "RelativePath": "example",
+    "RelativePath": "api/products",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 204
+        "StatusCode": 404
       }
     ],
-    "EndpointName": "AlmaDeMaltaApiEndpointsExampleEndpoint"
+    "EndpointName": "AlmaDeMaltaApiEndpointsGetProductsEndpoint"
   }
 ]

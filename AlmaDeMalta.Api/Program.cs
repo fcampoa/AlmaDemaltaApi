@@ -7,6 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Agregar servicios de FastEndpoints
 builder.Services.AddFastEndpoints();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin() // Permitir cualquier origen
+              .AllowAnyHeader() // Permitir cualquier encabezado
+              .AllowAnyMethod(); // Permitir cualquier método (GET, POST, etc.)
+    });
+});
+
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -25,7 +35,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Aplicar la política de CORS configurada
+app.UseCors("AllowAll");
+
 // Configurar FastEndpoints en el pipeline
-app.UseFastEndpoints();
+
+app.MapGroup("/api").MapFastEndpoints();
 
 app.Run();

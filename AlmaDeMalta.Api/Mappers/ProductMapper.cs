@@ -2,6 +2,7 @@
 using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using FastEndpoints;
+using System.Net;
 
 namespace AlmaDeMalta.api.Mappers;
     public class ProductMapper: Mapper<ProductRequest, Response, Product>
@@ -24,7 +25,7 @@ namespace AlmaDeMalta.api.Mappers;
     {
         return Response.CreateBuilder()
             .WithBody(source.Id)
-            .WithStatus(201)
+            .WithStatus(HttpStatusCode.Created)
             .WithSuccessMessage("Product created successfully")
             .Build();
     }
