@@ -2,6 +2,55 @@
   {
     "ContainingType": "FastEndpoints.MainExtensions\u002B\u003C\u003Ec",
     "Method": "\u003CMapFastEndpoints\u003Eb__2_1",
+    "RelativePath": "api/inventory",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "InventoryMovementRequest",
+        "Type": "AlmaDeMalta.api.Requests.InventoryMovementRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ],
+    "Tags": [
+      "Inventory Movements"
+    ],
+    "EndpointName": "Create Inventory Movement"
+  },
+  {
+    "ContainingType": "FastEndpoints.MainExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFastEndpoints\u003Eb__2_1",
     "RelativePath": "api/products",
     "HttpMethod": "POST",
     "IsController": false,
@@ -26,14 +75,14 @@
         "MediaTypes": [
           "application/json"
         ],
-        "StatusCode": 201
+        "StatusCode": 400
       },
       {
         "Type": "AlmaDeMalta.api.Responses.Response",
         "MediaTypes": [
           "application/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 201
       },
       {
         "Type": "AlmaDeMalta.api.Responses.Response",
@@ -70,6 +119,38 @@
         "StatusCode": 404
       }
     ],
-    "EndpointName": "AlmaDeMaltaApiEndpointsGetProductsEndpoint"
+    "EndpointName": "AlmaDeMaltaapiEndpointsProductsGetProductsEndpoint"
+  },
+  {
+    "ContainingType": "FastEndpoints.MainExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFastEndpoints\u003Eb__2_1",
+    "RelativePath": "api/products/{id}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AlmaDeMalta.api.Responses.Response",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "Tags": [
+      "Products"
+    ],
+    "EndpointName": "Get Product By Id"
   }
 ]

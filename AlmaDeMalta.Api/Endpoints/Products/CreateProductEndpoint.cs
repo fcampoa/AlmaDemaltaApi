@@ -1,10 +1,13 @@
-﻿using AlmaDeMalta.api.Requests;
+﻿using AlmaDeMalta.api.Mappers;
+using AlmaDeMalta.api.Requests;
 using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Api.Services;
 using FastEndpoints;
+using Microsoft.AspNetCore.Http.HttpResults;
+using System.Net;
 
 namespace AlmaDeMalta.api.Endpoints.Products;
-    public class CreateProductEndpoint(IProductService productService): Endpoint<ProductRequest, Response>
+    public class CreateProductEndpoint(IProductService productService): Endpoint<ProductRequest, Results<Ok<Response>, BadRequest>>
     {
     public override void Configure()
     {
@@ -18,8 +21,15 @@ namespace AlmaDeMalta.api.Endpoints.Products;
             .WithTags("Products"));
     }
     public override async Task HandleAsync(ProductRequest req, CancellationToken ct)
-    {       
-        var response = await productService.CreateAsync(req);
-        await SendAsync(response);
+    {   
+        var mapper = new ProductMapper();
+        var product = mapper.ToEntity(req);
+        var response = await productService.CreateAsync(product);
+        if (response.Status != HttpStatusCode.Created)
+        {
+            await SendResultAsync(TypedResults.BadRequest(response));
+            return;
+        }
+        await SendAsync(TypedResults.Ok(response));
     }
 }

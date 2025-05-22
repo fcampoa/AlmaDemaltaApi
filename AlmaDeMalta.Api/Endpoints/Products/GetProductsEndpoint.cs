@@ -1,4 +1,4 @@
-namespace AlmaDeMalta.Api.Endpoints;
+namespace AlmaDeMalta.api.Endpoints.Products;
 
 using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Api.Services;

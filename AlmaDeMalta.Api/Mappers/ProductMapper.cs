@@ -9,8 +9,10 @@ namespace AlmaDeMalta.api.Mappers;
     {
         public override Product ToEntity(ProductRequest source)
         {
-            return new Product
+            return new Product()
             {
+                Id = source.Id,
+                isActive = source.IsActive,
                 Name = source.Name,
                 Description = source.Description,
                 Price = source.Price,
@@ -21,12 +23,4 @@ namespace AlmaDeMalta.api.Mappers;
                 Unit = source.Unit
             };
         }
-    public override Response FromEntity(Product source)
-    {
-        return Response.CreateBuilder()
-            .WithBody(source.Id)
-            .WithStatus(HttpStatusCode.Created)
-            .WithSuccessMessage("Product created successfully")
-            .Build();
-    }
 }

@@ -18,4 +18,8 @@
     <ProjectReference Include="..\..\Common\AlmaDeMalta.Common.DatabaseConnection\AlmaDeMalta.Common.DatabaseConnection.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Endpoints\ExampleEndpoint\" />
+  </ItemGroup>
+
 </Project>

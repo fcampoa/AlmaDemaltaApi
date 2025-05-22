@@ -5,12 +5,12 @@ namespace AlmaDeMalta.Api.Services;
     public interface IBaseService<T>
     {
     // Create
-    Task<Response> CreateAsync(T request);
+    Task<Response> CreateAsync(T entity);
     // Read
     Task<Response> GetByIdAsync(Guid id);
     Task<Response> GetAllAsync();
     // Update
-    Task<Response> UpdateAsync(T request);
+    Task<Response> UpdateAsync(T entity);
     // Delete
     Task<Response> DeleteAsync(Guid id);
 }
