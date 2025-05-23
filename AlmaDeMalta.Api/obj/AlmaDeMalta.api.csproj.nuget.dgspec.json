@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\AlmaDeMalta.api.csproj": {}
+    "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\AlmaDeMalta.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\AlmaDeMalta.api.csproj": {
+    "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\AlmaDeMalta.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\AlmaDeMalta.api.csproj",
-        "projectName": "AlmaDeMalta.api",
-        "projectPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\AlmaDeMalta.api.csproj",
+        "projectUniqueName": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\AlmaDeMalta.Api.csproj",
+        "projectName": "AlmaDeMalta.Api",
+        "projectPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\AlmaDeMalta.Api.csproj",
         "packagesPath": "C:\\Users\\felix\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\obj\\",
+        "outputPath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

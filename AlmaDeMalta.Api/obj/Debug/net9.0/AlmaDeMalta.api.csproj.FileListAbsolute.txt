@@ -50,5 +50,4 @@ C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\Snappi
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\AlmaDeMalta.Common.DatabaseConnection.dll
 C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\bin\Debug\net9.0\AlmaDeMalta.Common.DatabaseConnection.pdb
-C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMa.6152FAA8.Up2Date
+C:\Users\felix\repos\AlmaDeMaltaBack\api\AlmaDeMalta.Api\obj\Debug\net9.0\AlmaDeMa.615779C8.Up2Date
