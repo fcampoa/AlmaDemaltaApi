@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YGaCAMD3wSU=",
+  "dgSpecHash": "oP4wEhfe9E0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\api\\AlmaDeMalta.Api\\AlmaDeMalta.Api.csproj",
+  "projectFilePath": "C:\\Users\\felix\\repos\\AlmaDeMaltaBack\\Api\\AlmaDeMalta.Api\\AlmaDeMalta.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felix\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\felix\\.nuget\\packages\\fastendpoints\\5.35.0\\fastendpoints.5.35.0.nupkg.sha512",
