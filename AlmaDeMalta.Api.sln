@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlmaDeMalta.Api", "AlmaDeMalta.Api", "{327C8683-FE66-0FCB-24BF-AC8FE10CF5BC}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Api", "AlmaDeMalta.Api\AlmaDeMalta.api.csproj", "{994E928A-C30D-4EEE-A918-7EC32EF5E92E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Common.Contracts", "..\Common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj", "{A5215B15-6DB6-4BF5-B14F-6E1F197B837F}"
