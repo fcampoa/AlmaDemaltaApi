@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copiar la solución y los archivos de proyecto
 COPY *.sln .
-COPY AlmaDeMalta.Api/*.csproj ./Api/AlmaDeMalta.Api/
+COPY *.csproj ./Api/AlmaDeMalta.Api/
 COPY ../../Common/AlmaDeMalta.Common.Contracts/*.csproj ./Common/AlmaDeMalta.Common.Contracts/
 COPY ../../Common/AlmaDeMalta.Common.DatabaseConnection/*.csproj ./Common/AlmaDeMalta.Common.DatabaseConnection/
 RUN dotnet restore
