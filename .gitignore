@@ -15,8 +15,8 @@ x86/
 [Aa]rtifacts/
 
 # Build artifacts
-obj/
-bin/
+**/obj/
+**/bin/
 
 # NuGet artifacts
 *.nuget.cache
