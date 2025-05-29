@@ -4,6 +4,8 @@ using AlmaDeMalta.Common.DatabaseConnection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
+
 // Agregar servicios de FastEndpoints
 builder.Services.AddFastEndpoints();
 
