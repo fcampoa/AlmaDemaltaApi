@@ -1,6 +1,4 @@
-﻿using AlmaDeMalta.api.Mappers;
-using AlmaDeMalta.api.Requests;
-using AlmaDeMalta.api.Responses;
+﻿using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Api.Services;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using AlmaDeMalta.Common.Contracts.DataBase;
@@ -8,7 +6,7 @@ using AlmaDeMalta.Common.Contracts.Overviews;
 using System.Net;
 
 namespace AlmaDeMalta.api.Services.Impl;
-public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork) : IProductService
+public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork, ILogger<ProductService> _logger) : IProductService
 {
     private readonly string SuccessCreateMessage = "Product created successfully.";
     private readonly string SuccessGetAllMessage = "Products retrieved successfully.";
@@ -25,11 +23,12 @@ public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork) : IProductService
         {
             entity.Id = Guid.NewGuid();
             await unitOfWork.ProductRepository.CreateAsync(entity);
-
+            _logger.LogInformation($"Product created with ID: {entity.Id}");
             return Response.Success(entity, SuccessCreateMessage, HttpStatusCode.Created);
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Error creating product");
             return Response.ServerError(ex.Message);
         }
     }
@@ -63,10 +62,12 @@ public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork) : IProductService
         {
             var repo = unitOfWork.ProductRepository;
             var products = await repo.GetAsync();
+            _logger.LogInformation($"Retrieved {products.Count} products from the database.");
             return Response.Success(products.Select(p => p.ToProductOverview()), SuccessGetAllMessage);
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Error retrieving products");
             return Response.ServerError($"{ex.Message}");
         }
     }
