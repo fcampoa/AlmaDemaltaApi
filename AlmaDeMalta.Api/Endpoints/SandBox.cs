@@ -19,6 +19,6 @@ namespace AlmaDeMalta.api.Endpoints;
     {
         // Simulate some processing
         await Task.Delay(1000, ct);
-        await SendResultAsync(TypedResults.Ok("Sandbox is operational!"));
+        await SendResultAsync(TypedResults.Ok("Sandbox is operational! :D"));
     }
 }
