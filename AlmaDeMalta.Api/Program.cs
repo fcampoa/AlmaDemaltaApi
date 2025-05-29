@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
 var services = builder.Services;
 
 services.AddOpenApi()
-    .UseSandBox(builder.Configuration)
+    .UseMongoConfig(builder.Configuration)
     .RegisterServices();
 var app = builder.Build();
 
