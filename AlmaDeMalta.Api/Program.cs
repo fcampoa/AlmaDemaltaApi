@@ -26,7 +26,8 @@ var services = builder.Services;
 
 services.AddOpenApi()
     .UseMongoConfig(builder.Configuration)
-    .RegisterServices();
+    .RegisterServices()
+    .RegisterUtilities();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
