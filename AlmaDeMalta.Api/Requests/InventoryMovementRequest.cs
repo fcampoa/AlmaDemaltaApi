@@ -1,4 +1,5 @@
-﻿using AlmaDeMalta.Common.Contracts.Overviews;
+﻿using AlmaDeMalta.Common.Contracts.Contracts;
+using AlmaDeMalta.Common.Contracts.Overviews;
 
 namespace AlmaDeMalta.api.Requests;
     public class InventoryMovementRequest
@@ -10,4 +11,5 @@ namespace AlmaDeMalta.api.Requests;
     public DateTime Date { get; set; } = DateTime.UtcNow;
     public string? UserId { get; set; } = null!;
     public bool IsIncoming { get; set; } = false;
+    public MesaureUnit Unit { get; set; } = MesaureUnit.Gram;
 }

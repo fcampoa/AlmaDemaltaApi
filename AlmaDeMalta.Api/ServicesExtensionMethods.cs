@@ -1,4 +1,5 @@
-﻿using AlmaDeMalta.Common.Contracts.Attributes;
+﻿using AlmaDeMalta.api.Services.Impl;
+using AlmaDeMalta.Common.Contracts.Attributes;
 using System.Reflection;
 
 namespace AlmaDeMalta.Common.Services;
@@ -32,6 +33,13 @@ public static class ServicesExtensionMethods
                     break;
             }
         }
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterUtilities(this IServiceCollection services)
+    {
+        services.AddScoped<ConversionService>();
 
         return services;
     }

@@ -7,7 +7,7 @@ using System.Net;
 
 namespace AlmaDeMalta.api.Services.Impl
 {
-    public class InventoryMovementsService(IAlmaDeMaltaUnitOfWork unitOfWork) : IInventoryMovementsService
+    public class InventoryMovementsService(IAlmaDeMaltaUnitOfWork unitOfWork, ConversionService conversionService) : IInventoryMovementsService
     {
         private readonly string SuccessCreateMessage = "Inventory movement created successfully.";
         private readonly string SuccessGetAllMessage = "Inventory movements retrieved successfully.";
@@ -30,7 +30,8 @@ namespace AlmaDeMalta.api.Services.Impl
                 {
                     return Response.NotFound(InvalidInventoryMovementNotFoundMessage);
                 }
-                product.Stock += entity.IsIncoming ? entity.Quantity : -entity.Quantity;
+                var stock = conversionService.Convert(entity.Quantity, entity.Unit, product.Unit);
+                product.Stock += entity.IsIncoming ? stock : -stock;
 
                 await productsRepo.UpdateAsync(x => x.Id == product.Id, product);
 

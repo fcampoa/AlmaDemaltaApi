@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using System.Net;
 
 namespace AlmaDeMalta.api.Endpoints.Products;
-    public class CreateProductEndpoint(IProductService productService): Endpoint<ProductRequest, Results<Ok<Response>, BadRequest>>
+    public class CreateProductEndpoint(IProductService productService): Endpoint<ProductRequest, Results<Ok<Response>, BadRequest>, ProductMapper>
     {
     public override void Configure()
     {
@@ -22,8 +22,7 @@ namespace AlmaDeMalta.api.Endpoints.Products;
     }
     public override async Task HandleAsync(ProductRequest req, CancellationToken ct)
     {   
-        var mapper = new ProductMapper();
-        var product = mapper.ToEntity(req);
+        var product = Map.ToEntity(req);
         var response = await productService.CreateAsync(product);
         if (response.Status != HttpStatusCode.Created)
         {
