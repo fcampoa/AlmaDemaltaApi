@@ -3,11 +3,11 @@ using AlmaDeMalta.api.Requests;
 using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using AlmaDeMalta.Common.Contracts.DataBase;
+using System.Linq.Expressions;
 using System.Net;
 
-namespace AlmaDeMalta.api.Services.Impl
-{
-    public class InventoryMovementsService(IAlmaDeMaltaUnitOfWork unitOfWork, ConversionService conversionService) : IInventoryMovementsService
+namespace AlmaDeMalta.api.Services.Impl;
+    public class InventoryMovementsService(IUnitOfWork unitOfWork, ConversionService conversionService) : IInventoryMovementsService
     {
         private readonly string SuccessCreateMessage = "Inventory movement created successfully.";
         private readonly string SuccessGetAllMessage = "Inventory movements retrieved successfully.";
@@ -19,117 +19,95 @@ namespace AlmaDeMalta.api.Services.Impl
         private readonly string InvalidInventoryMovementDeleteMessage = "Invalid inventory movement ID for deletion.";
         public async Task<Response> CreateAsync(InventoryMovements entity)
         {
-            try
+            var productsRepo = unitOfWork.GetRepository<Product>();
+            var product = await productsRepo.FindOneAsync(x => x.Id == entity.Product.ProductId);
+            if (product == null)
             {
-                entity.Id = Guid.NewGuid();
-                await unitOfWork.InventoryMovementsRepository.CreateAsync(entity);
-
-                var productsRepo = unitOfWork.ProductRepository;
-                var product = await productsRepo.FindOneAsync(x => x.Id == entity.Product.ProductId);
-                if (product == null)
-                {
-                    return Response.NotFound(InvalidInventoryMovementNotFoundMessage);
-                }
-                var stock = conversionService.Convert(entity.Quantity, entity.Unit, product.Unit);
-                product.Stock += entity.IsIncoming ? stock : -stock;
-
-                await productsRepo.UpdateAsync(x => x.Id == product.Id, product);
-
-                return Response.Success(entity, SuccessCreateMessage, HttpStatusCode.Created);
+                return Response.NotFound(InvalidInventoryMovementNotFoundMessage);
             }
-            catch (Exception ex)
-            {
-                return Response.ServerError(ex.Message);
-            }
+            entity.Id = Guid.NewGuid();
+            await unitOfWork.GetRepository<InventoryMovements>().CreateAsync(entity);
+
+            var stock = conversionService.Convert(entity.Quantity, entity.Unit, product.Unit);
+            product.Stock += entity.IsIncoming ? stock : -stock;
+
+            await productsRepo.UpdateAsync(x => x.Id == product.Id, product);
+
+            return Response.Success(entity, SuccessCreateMessage, HttpStatusCode.Created);
         }
 
         public async Task<Response> DeleteAsync(Guid id)
         {
-            try
+            if (id == Guid.Empty)
             {
-                if (id == Guid.Empty)
-                {
-                    return Response.Error(InvalidInventoryMovementDeleteMessage);
-                }
-                var repo = unitOfWork.InventoryMovementsRepository;
-                var inventoryMovement = await repo.FindOneAsync(x => x.Id == id);
-                if (inventoryMovement == null)
-                {
-                    return Response.NotFound(NotFoundMessage);
-                }
-                await repo.DeleteAsync(x => x.Id == id);
-                return Response.Success(id, SuccessDeleteMessage);
+                return Response.Error(InvalidInventoryMovementDeleteMessage);
             }
-            catch (Exception ex)
+            var repo = unitOfWork.GetRepository<Product>();
+            var inventoryMovement = await repo.FindOneAsync(x => x.Id == id);
+            if (inventoryMovement == null)
             {
-                return Response.ServerError(ex.Message);
+                return Response.NotFound(NotFoundMessage);
             }
+            await repo.DeleteAsync(x => x.Id == id);
+            return Response.Success(id, SuccessDeleteMessage);
         }
 
         public async Task<Response> GetAllAsync()
         {
-            try
+            var repo = unitOfWork.GetRepository<Product>();
+            var inventoryMovements = await repo.GetAsync();
+            if (inventoryMovements == null || !inventoryMovements.Any())
             {
-                var repo = unitOfWork.InventoryMovementsRepository;
-                var inventoryMovements = await repo.GetAsync();
-                if (inventoryMovements == null || !inventoryMovements.Any())
-                {
-                    return Response.NotFound(NotFoundMessage);
-                }
-                var response = inventoryMovements;
-                return Response.Success(response, SuccessGetAllMessage, HttpStatusCode.OK);
+                return Response.NotFound(NotFoundMessage);
             }
-            catch (Exception ex)
-            {
-                return Response.ServerError(ex.Message);
-            }
+            var response = inventoryMovements;
+            return Response.Success(response, SuccessGetAllMessage, HttpStatusCode.OK);
         }
 
         public async Task<Response> GetByIdAsync(Guid id)
         {
-            try
+            if (id == Guid.Empty)
             {
-                if (id == Guid.Empty)
-                {
-                    return Response.Error(InvalidInventoryMovementNotFoundMessage);
-                }
-                var repo = unitOfWork.InventoryMovementsRepository;
-                var inventoryMovement = await repo.FindOneAsync(x => x.Id == id);
-                if (inventoryMovement == null)
-                {
-                    return Response.NotFound(NotFoundMessage);
-                }
-                var response = inventoryMovement;
-                return Response.Success(response, SuccessGetByIdMessage);
+                return Response.Error(InvalidInventoryMovementNotFoundMessage);
             }
-            catch (Exception ex)
+            var repo = unitOfWork.GetRepository<Product>();
+            var inventoryMovement = await repo.FindOneAsync(x => x.Id == id);
+            if (inventoryMovement == null)
             {
-                return Response.ServerError(ex.Message);
+                return Response.NotFound(NotFoundMessage);
             }
+            var response = inventoryMovement;
+            return Response.Success(response, SuccessGetByIdMessage);
+        }
+
+        public async Task<Response> Search(Expression<Func<InventoryMovements, bool>> searchTerm)
+        {
+            if (searchTerm == null)
+            {
+                return Response.Error("Search term cannot be null.");
+            }
+            var repo = unitOfWork.GetRepository<InventoryMovements>();
+            var inventoryMovements = await repo.GetAsync(searchTerm);
+            if (inventoryMovements == null || !inventoryMovements.Any())
+            {
+                return Response.NotFound(NotFoundMessage);
+            }
+            return Response.Success(inventoryMovements, SuccessGetAllMessage, HttpStatusCode.OK);
         }
 
         public async Task<Response> UpdateAsync(InventoryMovements entity)
         {
-            try
+            if (entity.Id == Guid.Empty)
             {
-                if (entity.Id == Guid.Empty)
-                {
-                    return Response.Error(InvalidInventoryMovementNotFoundMessage);
-                }
-                var repo = unitOfWork.InventoryMovementsRepository;
-                var inventoryMovement = await repo.FindOneAsync(x => x.Id == entity.Id);
-                if (inventoryMovement == null)
-                {
-                    return Response.NotFound(NotFoundMessage);
-                }
-                await repo.UpdateAsync(im => im.Id == inventoryMovement.Id, entity);
-                return Response.Success(inventoryMovement.Id, SuccessUpdateMessage);
+                return Response.Error(InvalidInventoryMovementNotFoundMessage);
             }
-            catch (Exception ex)
+            var repo = unitOfWork.GetRepository<InventoryMovements>();
+            var inventoryMovement = await repo.FindOneAsync(x => x.Id == entity.Id);
+            if (inventoryMovement == null)
             {
-                return Response.ServerError(ex.Message);
+                return Response.NotFound(NotFoundMessage);
             }
-            // Other methods (GetByIdAsync, GetAllAsync, UpdateAsync, DeleteAsync) would be implemented similarly.
+            await repo.UpdateAsync(im => im.Id == inventoryMovement.Id, entity);
+            return Response.Success(inventoryMovement.Id, SuccessUpdateMessage);
         }
     }
-}

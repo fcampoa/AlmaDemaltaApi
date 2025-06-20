@@ -1,12 +1,14 @@
-﻿using AlmaDeMalta.api.Responses;
+﻿using AlmaDeMalta.api.Requests;
+using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Api.Services;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using AlmaDeMalta.Common.Contracts.DataBase;
 using AlmaDeMalta.Common.Contracts.Overviews;
+using System.Linq.Expressions;
 using System.Net;
 
 namespace AlmaDeMalta.api.Services.Impl;
-public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork, ILogger<ProductService> _logger) : IProductService
+public class ProductService(IUnitOfWork unitOfWork, ConversionService conversionService, ILogger<ProductService> _logger) : IProductService
 {
     private readonly string SuccessCreateMessage = "Product created successfully.";
     private readonly string SuccessGetAllMessage = "Products retrieved successfully.";
@@ -19,29 +21,20 @@ public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork, ILogger<ProductSe
 
     public async Task<Response> CreateAsync(Product entity)
     {
-        try
-        {
             entity.Id = Guid.NewGuid();
-            await unitOfWork.ProductRepository.CreateAsync(entity);
+            await unitOfWork.GetRepository<Product>().CreateAsync(entity);
             _logger.LogInformation($"Product created with ID: {entity.Id}");
             return Response.Success(entity, SuccessCreateMessage, HttpStatusCode.Created);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error creating product");
-            return Response.ServerError(ex.Message);
-        }
+        
     }
 
     public async Task<Response> DeleteAsync(Guid id)
     {
-        try
-        {
             if (id == Guid.Empty)
             {
                 return Response.Error(NotFoundMessage);
             }
-            var repo = unitOfWork.ProductRepository;
+            var repo = unitOfWork.GetRepository<Product>();
             var product = await repo.FindOneAsync(x => x.Id == id);
             if (product == null)
             {
@@ -49,63 +42,47 @@ public class ProductService(IAlmaDeMaltaUnitOfWork unitOfWork, ILogger<ProductSe
             }
             await repo.DeleteAsync(x => x.Id == id);
             return Response.Success(id, SuccessDeleteMessage);
-        }
-        catch (Exception)
-        {
-           return  Response.ServerError(NotFoundMessage);
-        }
+        
     }
 
     public async Task<Response> GetAllAsync()
     {
-        try
-        {
-            var repo = unitOfWork.ProductRepository;
-            var products = await repo.GetAsync();
+            var products = await unitOfWork.GetRepository<Product>().GetAsync();
             _logger.LogInformation($"Retrieved {products.Count} products from the database.");
             return Response.Success(products.Select(p => p.ToProductOverview()), SuccessGetAllMessage);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error retrieving products");
-            return Response.ServerError($"{ex.Message}");
-        }
+        
     }
 
     public async Task<Response> GetByIdAsync(Guid id)
     {
-        try
-        {
-            var repo = unitOfWork.ProductRepository;
-            var product = await repo.FindOneAsync(x => x.Id == id);
+            var product = await unitOfWork.GetRepository<Product>().FindOneAsync(x => x.Id == id);
             if (product == null)
             {
                 return Response.NotFound(InvalidProductNotFoundMessage);
             }
             return Response.Success(product, SuccessGetByIdMessage);
-        }
-        catch (Exception ex)
-        {
-            return Response.ServerError(ex.Message);
-        }
+    }
+
+    public async Task<Response> Search(Expression<Func<Product, bool>> searchTerm)
+    {
+            var products = await unitOfWork.GetRepository<Product>().GetAsync(searchTerm);
+            if (products is null || !products.Any())
+            {
+                return Response.NotFound(NotFoundMessage);
+            }
+            return Response.Success(products.Select(p => p.ToProductOverview()), SuccessGetAllMessage);
     }
 
     public async Task<Response> UpdateAsync(Product entity)
     {
-        try
-        {
-            var repo = unitOfWork.ProductRepository;
-            var exist = await repo.ExistsAsync(x => x.Id == entity.Id);
-            if (!exist)
+            var repo = unitOfWork.GetRepository<Product>();
+            var exist = await repo.FindOneAsync(x => x.Id == entity.Id);
+            if (exist is null)
             {
                 return Response.NotFound(InvalidProductNotFoundMessage);
             }
+            entity.Stock = conversionService.Convert(entity.Stock, exist.Unit, entity.Unit);
             await repo.UpdateAsync(x => x.Id == entity.Id, entity);
             return Response.Success(entity.Id, SuccessUpdateMessage);
-        }
-        catch (Exception ex)
-        {
-            return Response.ServerError(ex.Message);
-        }
     }
 }

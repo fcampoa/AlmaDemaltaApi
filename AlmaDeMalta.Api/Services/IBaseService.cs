@@ -1,5 +1,7 @@
 ﻿using AlmaDeMalta.api.Requests;
 using AlmaDeMalta.api.Responses;
+using AlmaDeMalta.Common.Contracts.Contracts;
+using System.Linq.Expressions;
 
 namespace AlmaDeMalta.Api.Services;
     public interface IBaseService<T>
@@ -13,4 +15,6 @@ namespace AlmaDeMalta.Api.Services;
     Task<Response> UpdateAsync(T entity);
     // Delete
     Task<Response> DeleteAsync(Guid id);
+    // Search
+    Task<Response> Search(Expression<Func<T, bool>> searchTerm);
 }
