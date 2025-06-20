@@ -1,6 +1,7 @@
 using AlmaDeMalta.Common.Services;
 using FastEndpoints;
 using AlmaDeMalta.Common.DatabaseConnection;
+using AlmaDeMalta.api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 // Aplicar la política de CORS configurada
 app.UseCors("AllowAll");
