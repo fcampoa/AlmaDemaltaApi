@@ -31,7 +31,7 @@ public class CreateInventoryMovementEndpoint(IInventoryMovementsService inventor
             await SendResultAsync(TypedResults.BadRequest(response));
             return;
         }
-        await SendAsync(TypedResults.Ok(response));
+        await SendResultAsync(TypedResults.Ok(response));
     }
         catch (Exception ex)
         {

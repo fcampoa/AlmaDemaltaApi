@@ -25,6 +25,6 @@ public class CreateSaleDashboardEndpoint(ISaleDashboardService saleDashboardServ
             await SendResultAsync(TypedResults.BadRequest(response));
             return;
         }
-        await SendAsync(TypedResults.Ok(response));
+        await SendResultAsync(TypedResults.Ok(response));
     }
 }

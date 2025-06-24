@@ -30,7 +30,7 @@ namespace AlmaDeMalta.api.Endpoints.Products;
             await SendResultAsync(TypedResults.NotFound(response));
             return;
         }
-        await SendAsync(TypedResults.Ok(response));
+        await SendResultAsync(TypedResults.Ok(response));
     }
 
     private Expression<Func<Product, bool>> BuildSearchExpression(ProductSearchRequest request)

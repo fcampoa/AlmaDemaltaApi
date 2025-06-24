@@ -1,6 +1,7 @@
 ﻿using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using AlmaDeMalta.Common.Contracts.DataBase;
+using AlmaDeMalta.Common.Contracts.Overviews;
 using System.Linq.Expressions;
 
 namespace AlmaDeMalta.api.Services.Impl;
@@ -18,6 +19,10 @@ public class SaleDashboardService(IUnitOfWork unitOfWork, ILogger<SaleDashboardS
     public async Task<Response> CreateAsync(SaleDashboard entity)
     {
         entity.Id = Guid.NewGuid();
+        if (entity.IsDefault)
+        {
+            await unitOfWork.GetRepository<SaleDashboard>().UpdateManyAsync(x => x.IsDefault, x => new SaleDashboard { IsDefault = false});
+        }
         await unitOfWork.GetRepository<SaleDashboard>().CreateAsync(entity);
         _logger.LogInformation($"Sale dashboard created with ID: {entity.Id}");
         return Response.Success(entity, SuccessCreateMessage, System.Net.HttpStatusCode.Created);
@@ -48,7 +53,7 @@ public class SaleDashboardService(IUnitOfWork unitOfWork, ILogger<SaleDashboardS
             return Response.NotFound(NotFoundMessage);
         }
         _logger.LogInformation($"Retrieved {dashboards.Count} dashboards from the database.");
-        return Response.Success(dashboards, SuccessGetAllMessage);
+        return Response.Success(dashboards.Select(d => d.ToSaleDashboardOverview()), SuccessGetAllMessage);
     }
 
     public async Task<Response> GetByIdAsync(Guid id)
@@ -74,7 +79,7 @@ public class SaleDashboardService(IUnitOfWork unitOfWork, ILogger<SaleDashboardS
             return Response.NotFound(NotFoundMessage);
         }
         _logger.LogInformation($"Retrieved {dashboards.Count} dashboards for overview.");
-        return Response.Success(dashboards.Select(d => new { d.Id, d.Name }).ToList(), SuccessGetAllMessage);
+        return Response.Success(dashboards.Select(d => new { d.Id, d.Name, TotalProducts = d.Products.Count }).ToList(), SuccessGetAllMessage);
     }
 
     public async Task<Response> Search(Expression<Func<SaleDashboard, bool>> searchTerm)
@@ -102,6 +107,10 @@ public class SaleDashboardService(IUnitOfWork unitOfWork, ILogger<SaleDashboardS
         if (existingDashboard == null)
         {
             return Response.NotFound(NotFoundMessage);
+        }
+        if (entity.IsDefault)
+        {
+            await unitOfWork.GetRepository<SaleDashboard>().UpdateManyAsync(x => x.IsDefault, x => new SaleDashboard { IsDefault = false });
         }
         await unitOfWork.GetRepository<SaleDashboard>().UpdateAsync(x => x.Id == entity.Id, entity);
         _logger.LogInformation($"Dashboard updated with ID: {entity.Id}");

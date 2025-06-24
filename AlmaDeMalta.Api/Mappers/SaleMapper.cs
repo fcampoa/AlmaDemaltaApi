@@ -14,7 +14,8 @@ public class SaleMapper : Mapper<SaleRequest, Response, Sale>
             Total = source.Total,
             PaymentMethod = source.PaymentMethod,
             Products = source.Products,
-            Status = source.Status
+            Status = source.Status,
+            PurchaseOrderNumberPrefixId = source.PurchaseOrderNumberPrefixId
         };
     }
 }

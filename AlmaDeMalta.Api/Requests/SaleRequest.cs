@@ -6,9 +6,10 @@ namespace AlmaDeMalta.api.Requests;
     {
     public Guid Id { get; set; } = Guid.Empty;
     public bool IsActive { get; set; } = true;
-    public List<ProductOvewview> Products { get; set; } = [];
+    public List<SaleDetail> Products { get; set; } = [];
     public decimal Subtotal { get; set; } = 0;
     public decimal Total { get; set; } = 0;
     public PaymentMethod PaymentMethod { get; set; } = null!;
     public StatusEnum Status { get; set; } = StatusEnum.Draft;
+    public Guid? PurchaseOrderNumberPrefixId { get; set; } = null!;
 }

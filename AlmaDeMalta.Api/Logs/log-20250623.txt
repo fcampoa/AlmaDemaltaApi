@@ -1,0 +1,112 @@
+2025-06-23 17:28:24.912 -07:00 [INF] Registered 20 endpoints in 623 milliseconds.
+2025-06-23 17:29:19.627 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 17:40:47.962 -07:00 [INF] Registered 20 endpoints in 468 milliseconds.
+2025-06-23 17:42:36.472 -07:00 [INF] Registered 20 endpoints in 413 milliseconds.
+2025-06-23 17:44:40.029 -07:00 [INF] Registered 20 endpoints in 433 milliseconds.
+2025-06-23 17:51:56.648 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 17:51:56.652 -07:00 [INF] Retrieved 1 dashboards for overview.
+2025-06-23 17:52:00.099 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:16:20.616 -07:00 [INF] Registered 21 endpoints in 516 milliseconds.
+2025-06-23 19:16:39.637 -07:00 [INF] Retrieved 1 dashboards for overview.
+2025-06-23 19:16:46.256 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:16:46.289 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:17:48.334 -07:00 [INF] Sale dashboard created with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:17:54.206 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:19:14.611 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:19:16.248 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:19:16.248 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:19:19.985 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:19:20.857 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:19:20.859 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:19:29.669 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:19:31.108 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:19:31.109 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:23:59.283 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:23:59.353 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:28:21.801 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:28:21.809 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:29:56.791 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:29:56.794 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:30:02.943 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:30:04.493 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:30:07.207 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:30:41.075 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:30:42.724 -07:00 [INF] Dashboard retrieved with ID: fc9a0246-ce87-4303-afc5-46e0651c8ccf
+2025-06-23 19:30:46.045 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:32:26.198 -07:00 [INF] Registered 21 endpoints in 458 milliseconds.
+2025-06-23 19:32:31.572 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:32:35.012 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:32:57.013 -07:00 [INF] Dashboard updated with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:33:03.750 -07:00 [INF] Dashboard updated with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:33:05.841 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:33:08.874 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:33:29.982 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:33:35.206 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:34:27.287 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 19:34:41.601 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:34:41.612 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 19:34:45.607 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 19:54:33.974 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 19:54:34.026 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:56:48.959 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 19:56:48.959 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:57:44.485 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 19:57:44.545 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 19:57:51.477 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:01:11.418 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-23 20:01:23.973 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:01:23.973 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:03:27.621 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:03:27.621 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:03:34.611 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:09:45.466 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:09:45.466 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:09:50.407 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:15:49.816 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:15:49.849 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:15:54.249 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:22:44.607 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:22:44.666 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:22:48.156 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:23:51.922 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:23:51.922 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:23:57.094 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:25:15.088 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:25:15.088 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:25:18.096 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:27:33.097 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:27:33.102 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:27:39.168 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:30:02.854 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:30:02.855 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:30:06.395 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:35:13.054 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:35:13.059 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:37:11.389 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:37:11.424 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:43:15.304 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:43:15.304 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:43:20.903 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 20:44:00.465 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:44:00.478 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:44:16.437 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:44:16.454 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:52:24.836 -07:00 [INF] Registered 21 endpoints in 488 milliseconds.
+2025-06-23 20:52:33.003 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:52:33.003 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:57:01.732 -07:00 [INF] Registered 21 endpoints in 592 milliseconds.
+2025-06-23 20:57:17.627 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:57:17.628 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:57:43.686 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 20:57:43.686 -07:00 [INF] Retrieved 2 dashboards for overview.
+2025-06-23 20:59:21.634 -07:00 [INF] Registered 21 endpoints in 425 milliseconds.
+2025-06-23 20:59:28.641 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-23 20:59:28.641 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 23:22:40.594 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-23 23:22:40.597 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 23:22:41.946 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 23:27:42.350 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-23 23:27:42.395 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-23 23:27:44.387 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-23 23:28:22.925 -07:00 [INF] Sale created with ID: d2efc87e-efd5-44bb-b9e4-c6a8f0cdba4d
+2025-06-23 23:28:34.218 -07:00 [INF] Retrieved 12 products from the database.

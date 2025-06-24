@@ -8,7 +8,7 @@ public class UpdateSaleDashboardEndpoint(ISaleDashboardService saleDashboardServ
 {
     public override void Configure()
     {
-        Put("sales/dashboard");
+        Put("sales/dashboard/{id}");
         AllowAnonymous();
         Description(x => x
             .WithName("Update Sale Dashboard")
@@ -25,6 +25,6 @@ public class UpdateSaleDashboardEndpoint(ISaleDashboardService saleDashboardServ
             await SendResultAsync(TypedResults.BadRequest(response));
             return;
         }
-        await SendAsync(TypedResults.Ok(response));
+        await SendResultAsync(TypedResults.Ok(response));
     }
 }

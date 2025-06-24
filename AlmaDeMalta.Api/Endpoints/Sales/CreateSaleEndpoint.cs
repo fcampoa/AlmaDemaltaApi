@@ -27,6 +27,6 @@ public class CreateSaleEndpoint(ISaleService saleService) : Endpoint<SaleRequest
             await SendResultAsync(TypedResults.BadRequest(response));
             return;
         }
-        await SendAsync(TypedResults.Ok(response));
+        await SendResultAsync(TypedResults.Ok(response));
     }
 }

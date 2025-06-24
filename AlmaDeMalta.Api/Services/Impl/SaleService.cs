@@ -18,6 +18,15 @@ public class SaleService(IUnitOfWork unitOfWork, ILogger<SaleService> _logger) :
     public async Task<Response> CreateAsync(Sale entity)
     {
         entity.Id = Guid.NewGuid();
+
+        entity.Status = entity.PaymentMethod.Type == PaymentType.Complimentary ? StatusEnum.Pending : StatusEnum.Completed;
+        var orderNumber = await unitOfWork.GetRepository<PurchaseOrderNumberPrefix>().FindOneAsync(p => p.Id == entity.PurchaseOrderNumberPrefixId);
+        if (orderNumber != null)
+        {
+            entity.PurchaseOrderNumber = $"{orderNumber.prefix}{orderNumber.Number}";
+            orderNumber.Number = orderNumber.Number + 1;
+            await unitOfWork.GetRepository<PurchaseOrderNumberPrefix>().UpdateAsync(p => p.Id == orderNumber.Id, orderNumber);
+        }
         await unitOfWork.GetRepository<Sale>().CreateAsync(entity);
         _logger.LogInformation($"Sale created with ID: {entity.Id}");
         return Response.Success(entity, SuccessCreateMessage, System.Net.HttpStatusCode.Created);

@@ -35,7 +35,7 @@ public class SearchSaleEndpoint(ISaleService saleService) : Endpoint<SaleSearchR
         Expression<Func<Sale, bool>> expression = PredicateBuilder.New<Sale>(sale => sale.isActive == request.IsActive); // Start with a true condition
         if (request.ProductId != null)
         {
-            expression = expression.And(sale => sale.Products.Any(p => p.ProductId == request.ProductId));
+            expression = expression.And(sale => sale.Products.Any(p => p.Product.ProductId == request.ProductId));
         }
         if (request.StartDate.HasValue)
         {

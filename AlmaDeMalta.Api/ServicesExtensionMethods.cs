@@ -19,21 +19,15 @@ public static class ServicesExtensionMethods
                              .ToList();
         foreach (var service in types)
         {
-            if (service.Implementation == null) {  continue; }
-            switch(service.StrategyEnum)
+            if (service.Implementation == null) { continue; }
+            _ = service.StrategyEnum switch
             {
-                case StrategyEnum.Singleton:
-                    services.AddSingleton(service.Service, service.Implementation);
-                    break;
-                case StrategyEnum.Transient:
-                    services.AddTransient(service.Service, service.Implementation);
-                    break;
-                case StrategyEnum.Scoped:
-                    services.AddScoped(service.Service, service.Implementation);
-                    break;
-            }
+                StrategyEnum.Singleton => services.AddSingleton(service.Service, service.Implementation),
+                StrategyEnum.Transient => services.AddTransient(service.Service, service.Implementation),
+                StrategyEnum.Scoped => services.AddScoped(service.Service, service.Implementation),
+                _ => services
+            };
         }
-
         return services;
     }
 
