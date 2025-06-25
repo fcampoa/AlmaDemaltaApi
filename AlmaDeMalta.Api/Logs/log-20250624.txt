@@ -55,3 +55,38 @@ System.Collections.Generic.KeyNotFoundException: The given key 'AlmaDeMalta.Comm
 2025-06-24 13:38:46.022 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
 2025-06-24 14:00:07.075 -07:00 [INF] Sale created with ID: 9b3aa47f-98a1-449c-80d6-137fe6b1c9a1
 2025-06-24 14:00:40.231 -07:00 [INF] Sale created with ID: de747ab0-ba31-4b17-bfba-c7ecefa671ee
+2025-06-24 15:45:43.590 -07:00 [INF] Registered 21 endpoints in 730 milliseconds.
+2025-06-24 15:55:38.467 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 15:55:38.467 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 15:55:49.418 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:46:51.792 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:46:51.792 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:46:55.075 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:46:55.076 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:46:55.076 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:47:12.930 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:47:12.933 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:47:12.935 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:47:14.255 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:47:19.269 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-24 16:47:48.105 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-24 16:47:49.308 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:47:49.327 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:47:51.761 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:48:00.938 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-24 16:48:01.402 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:48:01.412 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:48:05.578 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:49:26.695 -07:00 [INF] Retrieved 12 products from the database.
+2025-06-24 16:50:38.027 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:50:38.033 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 16:50:38.059 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 16:57:21.986 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 16:57:22.001 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 17:03:18.203 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 17:03:18.206 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 17:03:18.228 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 17:03:18.276 -07:00 [INF] Retrieved 2 dashboards from the database.
+2025-06-24 17:03:18.286 -07:00 [INF] Retrieved 2 payment methods from the database.
+2025-06-24 17:03:18.358 -07:00 [INF] Dashboard retrieved with ID: 6889049e-3304-483d-b822-917272262815
+2025-06-24 17:03:27.665 -07:00 [INF] Retrieved 12 products from the database.
