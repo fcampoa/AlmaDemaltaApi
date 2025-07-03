@@ -9,7 +9,6 @@ public class UpdatePurchaseOrderNumberPrefix(IPurchaseOrderNumberPrefixService p
     public override void Configure()
     {
         Put("sales/prefixes/{id}");
-        AllowAnonymous();
         Description(x => x
             .WithName("Update Purchase Order Number Prefix")
             .Produces<Response>(StatusCodes.Status200OK)

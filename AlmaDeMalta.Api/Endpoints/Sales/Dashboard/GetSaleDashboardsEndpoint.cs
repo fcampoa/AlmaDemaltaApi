@@ -8,7 +8,6 @@ public class GetSaleDashboardsEndpoint(ISaleDashboardService saleDashboardServic
     public override void Configure()
     {
         Get("sales/dashboard");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get Sale Dashboards")
             .Produces<Response>(200)

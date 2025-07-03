@@ -1,0 +1,22 @@
+2025-07-01 16:03:28.083 -07:00 [INF] Registered 27 endpoints in 768 milliseconds.
+2025-07-01 16:18:22.309 -07:00 [ERR] An unhandled exception occurred.
+System.ArgumentNullException: Value cannot be null. (Parameter 'name')
+   at MongoDB.Driver.Core.Misc.Ensure.IsNotNullOrEmpty(String value, String paramName)
+   at MongoDB.Driver.MongoDatabase.CreateCollection(IClientSessionHandle session, String name, CreateCollectionOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoDatabase.<>c__DisplayClass20_0.<CreateCollection>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoDatabase.UsingImplicitSession(Action`1 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoDatabase.CreateCollection(String name, CreateCollectionOptions options, CancellationToken cancellationToken)
+   at AlmaDeMalta.Common.Contracts.DataBase.MongoDbContext.GetMongoCollection[T]() in C:\Users\felix\repos\AlmaDeMaltaBack\Common\AlmaDeMalta.Common.Contracts\DataBase\MongoDbContext.cs:line 119
+   at AlmaDeMalta.Common.Contracts.DataBase.MongoDbContext.FindOneAsync[T](Expression`1 filter) in C:\Users\felix\repos\AlmaDeMaltaBack\Common\AlmaDeMalta.Common.Contracts\DataBase\MongoDbContext.cs:line 43
+   at AlmaDeMalta.Common.Contracts.Repositories.RepositoryBase`1.FindOneAsync(Expression`1 filter) in C:\Users\felix\repos\AlmaDeMaltaBack\Common\AlmaDeMalta.Common.Contracts\Repositories\RepositoryBase.cs:line 26
+   at AlmaDeMalta.api.Services.Impl.UserService.GetByAuthId(User user) in C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\Services\Impl\UserService.cs:line 65
+   at AlmaDeMalta.api.Endpoints.auth.LoginEndpoint.HandleAsync(UserRequest req, CancellationToken ct) in C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\Endpoints\auth\LoginEndpoint.cs:line 23
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at AlmaDeMalta.api.Middlewares.ExceptionHandlerMiddleware.Invoke(HttpContext context) in C:\Users\felix\repos\AlmaDeMaltaBack\Api\AlmaDeMalta.Api\Middlewares\ExceptionHandlerMiddleware.cs:line 18
+2025-07-01 16:23:11.287 -07:00 [INF] Registered 27 endpoints in 420 milliseconds.
+2025-07-01 16:23:36.265 -07:00 [INF] New user created with AuthProviderId: 
+2025-07-01 16:28:56.160 -07:00 [INF] Registered 27 endpoints in 408 milliseconds.
+2025-07-01 16:29:31.894 -07:00 [INF] New user created with AuthProviderId: google-oauth2|112396270006770423371
+2025-07-01 16:30:59.774 -07:00 [INF] New user created with AuthProviderId: google-oauth2|112396270006770423371
+2025-07-01 16:32:05.217 -07:00 [INF] Registered 27 endpoints in 424 milliseconds.

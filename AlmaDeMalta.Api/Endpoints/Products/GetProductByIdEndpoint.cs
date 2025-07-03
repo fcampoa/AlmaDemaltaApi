@@ -10,7 +10,6 @@ namespace AlmaDeMalta.api.Endpoints.Products
         public override void Configure()
         {
             Get("products/{id}");
-            AllowAnonymous();
             Description(x => x
                 .WithName("Get Product By Id")
                 .Produces<Response>(200)

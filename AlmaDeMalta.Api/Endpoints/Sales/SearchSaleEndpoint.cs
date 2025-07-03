@@ -12,7 +12,6 @@ public class SearchSaleEndpoint(ISaleService saleService) : Endpoint<SaleSearchR
     public override void Configure()
     {
         Post("sales/search");
-        AllowAnonymous();
         Description(x => x
             .WithName("Search Sales")
             .Produces<Response>(200)

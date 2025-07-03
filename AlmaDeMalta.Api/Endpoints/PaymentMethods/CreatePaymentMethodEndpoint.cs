@@ -10,7 +10,6 @@ public class CreatePaymentMethodEndpoint(IPaymentMethodService paymentMethodServ
     public override void Configure()
     {
         Post("payment-methods");
-        AllowAnonymous();
         Description(x => x
             .WithName("Create Payment Method")
             .Produces<Response>(201)
