@@ -9,7 +9,6 @@ public class UpdateSaleDashboardEndpoint(ISaleDashboardService saleDashboardServ
     public override void Configure()
     {
         Put("sales/dashboard/{id}");
-        AllowAnonymous();
         Description(x => x
             .WithName("Update Sale Dashboard")
             .Produces<Response>(200)

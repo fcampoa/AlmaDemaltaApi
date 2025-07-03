@@ -4,23 +4,23 @@ using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.api.Services;
 using FastEndpoints;
 using Microsoft.AspNetCore.Http.HttpResults;
-namespace AlmaDeMalta.api.Endpoints.Sales;
-public class CreateSaleEndpoint(ISaleService saleService) : Endpoint<SaleRequest, Results<Ok<Response>, BadRequest>, SaleMapper>
+namespace AlmaDeMalta.api.Endpoints.Users;
+public class CreateUserEndpoint(IUserService userService) : Endpoint<UserRequest, Results<Ok<Response>, BadRequest>, UserMapper>
 {
     public override void Configure()
     {
-        Post("sales");
+        Post("users");
+        AllowAnonymous();
         Description(x => x
-            .WithName("Create Sale")
+            .WithName("Create User")
             .Produces<Response>(201)
             .Produces<Response>(400)
-            .Produces<Response>(500)
-            .WithTags("Sales"));
+            .WithTags("Users"));
     }
-    public override async Task HandleAsync(SaleRequest req, CancellationToken ct)
+    public override async Task HandleAsync(UserRequest req, CancellationToken ct)
     {
-        var sale = Map.ToEntity(req);
-        var response = await saleService.CreateAsync(sale);
+        var user = Map.ToEntity(req);
+        var response = await userService.CreateAsync(user);
         if (response.Status != System.Net.HttpStatusCode.Created)
         {
             await SendResultAsync(TypedResults.BadRequest(response));

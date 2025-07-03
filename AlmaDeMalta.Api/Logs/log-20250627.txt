@@ -1,0 +1,6 @@
+2025-06-27 15:48:53.026 -07:00 [INF] Registered 22 endpoints in 525 milliseconds.
+2025-06-27 16:11:46.117 -07:00 [INF] Registered 22 endpoints in 61,516 milliseconds.
+2025-06-27 16:36:38.602 -07:00 [INF] Registered 22 endpoints in 366 milliseconds.
+2025-06-27 16:36:53.722 -07:00 [INF] Registered 22 endpoints in 402 milliseconds.
+2025-06-27 16:38:00.448 -07:00 [INF] Registered 22 endpoints in 418 milliseconds.
+2025-06-27 16:39:49.328 -07:00 [INF] Registered 22 endpoints in 396 milliseconds.

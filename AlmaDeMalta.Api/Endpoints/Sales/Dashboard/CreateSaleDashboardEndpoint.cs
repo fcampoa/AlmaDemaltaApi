@@ -9,7 +9,6 @@ public class CreateSaleDashboardEndpoint(ISaleDashboardService saleDashboardServ
     public override void Configure()
     {
         Post("sales/dashboard");
-        AllowAnonymous();
         Description(x => x
             .WithName("Create Sale Dashboard")
             .Produces<Response>(201)

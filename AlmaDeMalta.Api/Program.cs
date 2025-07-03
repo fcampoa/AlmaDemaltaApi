@@ -3,6 +3,8 @@ using FastEndpoints;
 using AlmaDeMalta.Common.DatabaseConnection;
 using AlmaDeMalta.api.Middlewares;
 using Serilog;
+using AlmaDeMalta.Api;
+using AlmaDeMalta.api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +19,6 @@ builder.Host.UseSerilog((context, services, configuration) =>
         .Enrich.FromLogContext()
         .WriteTo.Console();
 });
-
-// Agregar servicios de FastEndpoints
-builder.Services.AddFastEndpoints();
 
 builder.Services.AddCors(options =>
 {
@@ -39,7 +38,9 @@ var services = builder.Services;
 services.AddOpenApi()
     .UseMongoConfig(builder.Configuration)
     .RegisterServices()
-    .RegisterUtilities();
+    .RegisterUtilities()
+    .AddFastEndpoints()
+    .AuthenticationConfig(builder);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -50,13 +51,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Aplicar la política de CORS configurada
 app.UseCors("AllowAll");
+
+// Aplicar la política de CORS configurada
+if (!app.Environment.IsDevelopment())
+{
+    app.UseAuthentication()
+       .UseAuthorization();
+}
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 // Configurar FastEndpoints en el pipeline
 
-app.MapGroup("/api").MapFastEndpoints();
+app.FastEndpointSetup();
 
 app.Run();

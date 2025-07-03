@@ -10,7 +10,6 @@ public class GetPurchseOrderNumberPrefixEndpoint(IPurchaseOrderNumberPrefixServi
     public override void Configure()
     {
         Get("sales/prefixes");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get Purchase Order Number Prefix")
             .Produces<PurchaseOrderNumberPrefix>(200)

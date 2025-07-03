@@ -8,7 +8,6 @@ public class GetPurchaseOrderNumberPrefixById(IPurchaseOrderNumberPrefixService 
     public override void Configure()
     {
         Get("sales/prefixes/{id}");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get Purchase Order Number Prefix By Id")
             .Produces<Response>(200)

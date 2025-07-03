@@ -9,7 +9,6 @@ public class CreatePurchaseOrderNumberPrefix(IPurchaseOrderNumberPrefixService _
     public override void Configure()
     {
         Post("sales/prefixes");
-        AllowAnonymous();
         Description(x => x
             .WithName("Create Purchase Order Number Prefix")
             .Produces<Response>(201)

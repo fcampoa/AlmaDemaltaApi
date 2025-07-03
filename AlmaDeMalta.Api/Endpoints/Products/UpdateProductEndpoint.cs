@@ -11,7 +11,6 @@ namespace AlmaDeMalta.api.Endpoints.Products;
         public override void Configure()
         {
             Put("products/{id}");
-            AllowAnonymous();
             Description(x => x
                 .WithName("Update Product")
                 .Produces<Response>(StatusCodes.Status200OK)

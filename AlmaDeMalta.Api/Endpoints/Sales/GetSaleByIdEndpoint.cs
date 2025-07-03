@@ -8,7 +8,6 @@ public class GetSaleByIdEndpointd(ISaleService saleService) : EndpointWithoutReq
     public override void Configure()
     {
         Get("sales/{id}");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get Sale By Id")
             .Produces<Response>(200)

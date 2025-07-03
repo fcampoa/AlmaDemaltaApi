@@ -8,7 +8,6 @@ public class GetSaleDahboardByIdEndpoint(ISaleDashboardService saleDashboardServ
     public override void Configure()
     {
         Get("sales/dashboard/{id}");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get Sale Dashboard By Id")
             .Produces<Response>(200)

@@ -14,7 +14,6 @@ namespace AlmaDeMalta.api.Endpoints.Products;
     public override void Configure()
     {
         Post("products/search");
-        AllowAnonymous();
         Description(x => x
             .WithName("Search Products")
             .Produces<Response>(200)

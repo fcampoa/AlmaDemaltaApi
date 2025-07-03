@@ -7,7 +7,6 @@ namespace AlmaDeMalta.api.Endpoints.PaymentMethods;
     public override void Configure()
     {
         Get("payment-methods");
-        AllowAnonymous();
         Description(x => x
             .WithName("Get All Payment Methods")
             .Produces(200)
