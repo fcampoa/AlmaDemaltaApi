@@ -5,6 +5,7 @@
 *.suo
 *.userosscache
 *.sln.docstates
+Logs/
 
 # Build results
 [Dd]ebug/

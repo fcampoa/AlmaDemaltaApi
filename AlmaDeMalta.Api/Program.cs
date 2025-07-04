@@ -11,29 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
 
 // Add Serilog configuration
-builder.Host.UseSerilog((context, services, configuration) =>
-{
-    configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services)
-        .Enrich.FromLogContext()
-        .WriteTo.Console();
-});
+builder.Host.UseLogging();
 
-builder.Services.AddCors(options =>
+var services = builder.Services;
+
+services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin() // Permitir cualquier origen
-              .AllowAnyHeader() // Permitir cualquier encabezado
-              .AllowAnyMethod(); // Permitir cualquier método (GET, POST, etc.)
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
-
-
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-var services = builder.Services;
 
 services.AddOpenApi()
     .UseMongoConfig(builder.Configuration)
@@ -41,6 +31,7 @@ services.AddOpenApi()
     .RegisterUtilities()
     .AddFastEndpoints()
     .AuthenticationConfig(builder);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -53,7 +44,6 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 
-// Aplicar la política de CORS configurada
 if (!app.Environment.IsDevelopment())
 {
     app.UseAuthentication()
@@ -61,8 +51,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
-
-// Configurar FastEndpoints en el pipeline
 
 app.FastEndpointSetup();
 
