@@ -43,6 +43,20 @@ public class PurchaseOrderNumberPrefixService(IUnitOfWork unitOfWork) : IPurchas
         return Response.Success(id, SuccessDeleteMessage);
     }
 
+    public async Task<Response> FindOne(Expression<Func<PurchaseOrderNumberPrefix, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var prefix = await unitOfWork.GetRepository<PurchaseOrderNumberPrefix>().FindOneAsync(searchTerm);
+        if (prefix == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        return Response.Success(prefix, "Purchase Order Number Prefix found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
         var prefixes = await unitOfWork.GetRepository<PurchaseOrderNumberPrefix>().GetAsync(p => p.ItemType.Contains(nameof(PurchaseOrderNumberPrefix)));

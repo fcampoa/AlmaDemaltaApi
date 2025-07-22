@@ -1,4 +1,5 @@
-﻿using AlmaDeMalta.api.Responses;
+﻿using AlmaDeMalta.api.Requests;
+using AlmaDeMalta.api.Responses;
 using AlmaDeMalta.Common.Contracts.Contracts;
 using AlmaDeMalta.Common.Contracts.DataBase;
 using System.Linq.Expressions;
@@ -42,6 +43,22 @@ public class UserService(IUnitOfWork unitOfWork, ILogger<UserService> _logger) :
         return Response.Success(id, SuccessDeleteMessage);
     }
 
+    public async Task<Response> FindOne(Expression<Func<User, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var user = await unitOfWork.GetRepository<User>().FindOneAsync(searchTerm);
+        if (user == null)
+        {
+            _logger.LogWarning(NotFoundMessage);
+            return Response.NotFound(NotFoundMessage);
+        }
+        _logger.LogInformation($"User found with search criteria: {searchTerm}");
+        return Response.Success(user, "User found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
         var users = await unitOfWork.GetRepository<User>().GetAsync(u => u.ItemType.Contains(nameof(User)));
@@ -57,7 +74,7 @@ public class UserService(IUnitOfWork unitOfWork, ILogger<UserService> _logger) :
     public async Task<Response> GetByAuthId(User user)
     {
         var repo = unitOfWork.GetRepository<User>();
-        var existingUser = await repo.FindOneAsync(u => u.AuthProviderId == user.AuthProviderId);
+        var existingUser = await repo.FindOneAsync(u => u.AuthProviderId == user.AuthProviderId || u.Email == user.Email);
         if (existingUser == null)
         {
             await repo.CreateAsync(user);

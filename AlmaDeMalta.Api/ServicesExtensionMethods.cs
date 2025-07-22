@@ -34,4 +34,14 @@ public static class ServicesExtensionMethods
 
         return services;
     }
+
+    public static IServiceCollection RegisterHttpClients(this IServiceCollection services, WebApplicationBuilder bld)
+    {
+        services.AddHttpClient("Auth0Client", client =>
+        {
+            client.BaseAddress = new Uri($"https://{bld.Configuration["Auth0:Domain"]}/");
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+        });
+        return services;
+    }
 }

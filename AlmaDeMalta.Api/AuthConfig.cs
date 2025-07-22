@@ -10,10 +10,10 @@ public static class AuthConfigExtensions
 
     public static IServiceCollection AuthenticationConfig(this IServiceCollection services, WebApplicationBuilder bld)
     {
-        if (bld.Environment.IsDevelopment())
-        {
-            return services.LocalAuth();
-        }
+        //if (bld.Environment.IsDevelopment())
+        //{
+        //    return services.LocalAuth();
+        //}
         return services.UseAuth0(bld);
     }
     public static IServiceCollection UseAuth0(this IServiceCollection services, WebApplicationBuilder bld)
@@ -44,7 +44,7 @@ public static class AuthConfigExtensions
                 options.TokenValidationParameters = new()
                 {
                     ValidAudience = bld.Configuration["Auth0:Audience"],
-                    ValidIssuer = bld.Configuration["Auth0:Domain"]
+                    ValidIssuer = $"https://{bld.Configuration["Auth0:Domain"]}/"
                 };
 
                 options.Events = new()

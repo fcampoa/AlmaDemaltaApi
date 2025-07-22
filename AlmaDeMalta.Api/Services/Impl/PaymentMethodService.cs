@@ -40,6 +40,21 @@ public class PaymentMethodService(IUnitOfWork unitOfWork, ILogger<PaymentMethodS
         return Response.Success(id, SuccessDeleteMessage);
     }
 
+    public async Task<Response> FindOne(Expression<Func<PaymentMethod, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var paymentMethod = await unitOfWork.GetRepository<PaymentMethod>().FindOneAsync(searchTerm);
+        if (paymentMethod == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        _logger.LogInformation($"Payment method found with search criteria: {searchTerm}");
+        return Response.Success(paymentMethod, "Payment method found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
         var paymentMethods = await unitOfWork.GetRepository<PaymentMethod>().GetAsync();

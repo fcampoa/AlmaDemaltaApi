@@ -45,6 +45,21 @@ public class ProductService(IUnitOfWork unitOfWork, ConversionService conversion
         
     }
 
+    public async Task<Response> FindOne(Expression<Func<Product, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var product = await unitOfWork.GetRepository<Product>().FindOneAsync(searchTerm);
+        if (product == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        _logger.LogInformation($"Product found with search criteria: {searchTerm}");
+        return Response.Success(product, "Product found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
             var products = await unitOfWork.GetRepository<Product>().GetAsync();

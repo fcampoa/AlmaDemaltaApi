@@ -52,7 +52,22 @@ namespace AlmaDeMalta.api.Services.Impl;
             return Response.Success(id, SuccessDeleteMessage);
         }
 
-        public async Task<Response> GetAllAsync()
+    public async Task<Response> FindOne(Expression<Func<InventoryMovements, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var repo = unitOfWork.GetRepository<InventoryMovements>();
+        var inventoryMovement = await repo.FindOneAsync(searchTerm);
+        if (inventoryMovement == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        return Response.Success(inventoryMovement, SuccessGetByIdMessage);
+    }
+
+    public async Task<Response> GetAllAsync()
         {
             var repo = unitOfWork.GetRepository<Product>();
             var inventoryMovements = await repo.GetAsync();

@@ -45,6 +45,21 @@ public class SaleDashboardService(IUnitOfWork unitOfWork, ILogger<SaleDashboardS
         return Response.Success(id, SuccessDeleteMessage);
     }
 
+    public async Task<Response> FindOne(Expression<Func<SaleDashboard, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var dashboard = await unitOfWork.GetRepository<SaleDashboard>().FindOneAsync(searchTerm);
+        if (dashboard == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        _logger.LogInformation($"Dashboard found with search criteria: {searchTerm}");
+        return Response.Success(dashboard, "Sale dashboard found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
         var dashboards = await unitOfWork.GetRepository<SaleDashboard>().GetAsync(d => d.ItemType.Contains(nameof(SaleDashboard)));

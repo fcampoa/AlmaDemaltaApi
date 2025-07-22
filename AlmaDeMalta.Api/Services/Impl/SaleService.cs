@@ -47,6 +47,22 @@ public class SaleService(IUnitOfWork unitOfWork, ILogger<SaleService> _logger) :
         _logger.LogInformation($"Sale deleted with ID: {id}");
         return Response.Success(id, SuccessDeleteMessage);
     }
+
+    public async Task<Response> FindOne(Expression<Func<Sale, bool>> searchTerm)
+    {
+        if (searchTerm == null)
+        {
+            return Response.Error("Search term cannot be null.");
+        }
+        var sale = await unitOfWork.GetRepository<Sale>().FindOneAsync(searchTerm);
+        if (sale == null)
+        {
+            return Response.NotFound(NotFoundMessage);
+        }
+        _logger.LogInformation($"Sale found with search criteria: {searchTerm}");
+        return Response.Success(sale, "Sale found successfully.");
+    }
+
     public async Task<Response> GetAllAsync()
     {
         var sales = await unitOfWork.GetRepository<Sale>().GetAsync(s => s.ItemType.Contains(nameof(Sale)));

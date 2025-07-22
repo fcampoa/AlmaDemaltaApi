@@ -17,4 +17,5 @@ namespace AlmaDeMalta.Api.Services;
     Task<Response> DeleteAsync(Guid id);
     // Search
     Task<Response> Search(Expression<Func<T, bool>> searchTerm);
+    Task<Response> FindOne(Expression<Func<T, bool>> searchTerm);
 }

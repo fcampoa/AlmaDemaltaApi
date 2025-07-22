@@ -30,7 +30,8 @@ services.AddOpenApi()
     .RegisterServices()
     .RegisterUtilities()
     .AddFastEndpoints()
-    .AuthenticationConfig(builder);
+    .AuthenticationConfig(builder)
+    .RegisterHttpClients(builder);
 
 var app = builder.Build();
 
@@ -40,18 +41,17 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection()
+   .UseCors("AllowAll");
 
-app.UseCors("AllowAll");
-
-if (!app.Environment.IsDevelopment())
-{
+//if (!app.Environment.IsDevelopment())
+//{
     app.UseAuthentication()
        .UseAuthorization();
-}
+//}
 
-app.UseMiddleware<ExceptionHandlerMiddleware>();
-
-app.FastEndpointSetup();
+app.UseMiddleware<ExceptionHandlerMiddleware>()
+   .UseMiddleware<UserLoginMiddleware>()
+   .FastEndpointSetup();
 
 app.Run();
