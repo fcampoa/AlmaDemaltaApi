@@ -1,42 +1,24 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlmaDeMalta.Api", "AlmaDeMalta.Api", "{327C8683-FE66-0FCB-24BF-AC8FE10CF5BC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.api", "AlmaDeMalta.Api\AlmaDeMalta.api.csproj", "{994E928A-C30D-4EEE-A918-7EC32EF5E92E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaDeMalta.Api", "AlmaDeMalta.Api.csproj", "{FB60DE9A-6BBB-CF54-67B0-14CA2E585470}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|x64.Build.0 = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Debug|x86.Build.0 = Debug|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|x64.ActiveCfg = Release|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|x64.Build.0 = Release|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|x86.ActiveCfg = Release|Any CPU
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E}.Release|x86.Build.0 = Release|Any CPU
+		{FB60DE9A-6BBB-CF54-67B0-14CA2E585470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB60DE9A-6BBB-CF54-67B0-14CA2E585470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB60DE9A-6BBB-CF54-67B0-14CA2E585470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB60DE9A-6BBB-CF54-67B0-14CA2E585470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{994E928A-C30D-4EEE-A918-7EC32EF5E92E} = {327C8683-FE66-0FCB-24BF-AC8FE10CF5BC}
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D2DAD6C3-D923-4984-A3C1-F0A18CEF0AFE}
+		SolutionGuid = {5F76D1E1-F3F1-4DBB-8C77-6F5F010D71C7}
 	EndGlobalSection
 EndGlobal
