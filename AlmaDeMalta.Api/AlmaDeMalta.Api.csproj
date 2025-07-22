@@ -5,6 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<UserSecretsId>65ba6455-2170-4aa5-bf22-30897ee72a2a</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,20 +16,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AntaersSoft.Common" Version="1.0.0" />
+		<PackageReference Include="AntaersSoft.Database" Version="1.0.0" />
 		<PackageReference Include="FastEndpoints" Version="5.35.0" />
 		<PackageReference Include="FastEndpoints.Security" Version="5.35.0" />
 		<PackageReference Include="LinqKit" Version="1.3.8" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
 		<PackageReference Include="MongoDB.Driver" Version="3.3.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\Common\AlmaDeMalta.Common.Contracts\AlmaDeMalta.Common.Contracts.csproj" />
-		<ProjectReference Include="..\..\Common\AlmaDeMalta.Common.DatabaseConnection\AlmaDeMalta.Common.DatabaseConnection.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -7,7 +7,7 @@ public class SyncUsersEndpoint(IAuth0Service auth0Service, IUserService userServ
 {
     public override void Configure()
     {
-        Post("auth/sync");
+        Get("auth/sync");
         AllowAnonymous();
         Description(x => x
             .WithName("Sync Users")

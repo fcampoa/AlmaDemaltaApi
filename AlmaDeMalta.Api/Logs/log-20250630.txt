@@ -1,2 +1,0 @@
-2025-06-30 15:41:29.409 -07:00 [INF] Registered 27 endpoints in 739 milliseconds.
-2025-06-30 15:44:01.100 -07:00 [INF] Registered 27 endpoints in 452 milliseconds.

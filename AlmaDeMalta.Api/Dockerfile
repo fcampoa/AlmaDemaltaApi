@@ -1,23 +1,30 @@
-# Etapa 1: Construcción
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+
+# This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /app
-
-# Copiar la solución y los archivos de proyecto
-COPY *.sln .
-COPY ./Api/AlmaDeMalta.Api/*.csproj ./Api/AlmaDeMalta.Api/
-COPY ./Common/AlmaDeMalta.Common.Contracts/*.csproj ./Common/AlmaDeMalta.Common.Contracts/
-COPY ./Common/AlmaDeMalta.Common.DatabaseConnection/*.csproj ./Common/AlmaDeMalta.Common.DatabaseConnection/
-RUN dotnet restore
-
-# Copiar el resto del código fuente y compilar
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["AlmaDeMalta.Api/AlmaDeMalta.api.csproj", "AlmaDeMalta.Api/"]
+RUN dotnet restore "./AlmaDeMalta.Api/AlmaDeMalta.api.csproj"
 COPY . .
-WORKDIR /app/Api/AlmaDeMalta.Api
-RUN dotnet publish -c Release -o /out
+WORKDIR "/src/AlmaDeMalta.Api"
+RUN dotnet build "./AlmaDeMalta.api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Etapa 2: Ejecución
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+# This stage is used to publish the service project to be copied to the final stage
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./AlmaDeMalta.api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+FROM base AS final
 WORKDIR /app
-COPY --from=build /out .
-
-# Configurar la entrada del contenedor
-ENTRYPOINT ["dotnet", "AlmaDeMalta.Api.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "AlmaDeMalta.api.dll"]
