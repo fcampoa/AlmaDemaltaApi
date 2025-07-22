@@ -44,11 +44,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection()
    .UseCors("AllowAll");
 
-//if (!app.Environment.IsDevelopment())
-//{
+if (!app.Environment.IsDevelopment())
+{
     app.UseAuthentication()
        .UseAuthorization();
-//}
+}
 
 app.UseMiddleware<ExceptionHandlerMiddleware>()
    .UseMiddleware<UserLoginMiddleware>()

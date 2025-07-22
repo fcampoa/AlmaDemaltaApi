@@ -10,10 +10,10 @@ public static class AuthConfigExtensions
 
     public static IServiceCollection AuthenticationConfig(this IServiceCollection services, WebApplicationBuilder bld)
     {
-        //if (bld.Environment.IsDevelopment())
-        //{
-        //    return services.LocalAuth();
-        //}
+        if (bld.Environment.IsDevelopment())
+        {
+            return services.LocalAuth();
+        }
         return services.UseAuth0(bld);
     }
     public static IServiceCollection UseAuth0(this IServiceCollection services, WebApplicationBuilder bld)
