@@ -19,6 +19,9 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Clean previous builds
+        run: dotnet clean
+
       - name: Restore dependencies
         run: dotnet restore
         env:
@@ -29,7 +32,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Publish .NET app
-        run: dotnet publish AlmaDeMalta.Api.csproj -c Release -o published --no-build
+        run: dotnet publish AlmaDeMalta.Api.csproj -c Release -o published -p:ResolveStaticWebAssetsInputsDependsOn= -p:ResolveStaticWebAssetsPublishDependsOn= --no-restore
 
       - name: Deploy to Heroku
         env:
