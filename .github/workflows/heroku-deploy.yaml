@@ -19,6 +19,14 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Restore dependencies
+        run: |
+          dotnet nuget add source "https://nuget.pkg.github.com/fcampoa/index.json" --name "github" --username "fcampoa" --password "${{ secrets.GH_PACKAGES_TOKEN }}" --store-password-in-clear-text
+          dotnet restore
+
+      - name:  build
+        run: dotnet build --no-restore
+
       - name: Publish .NET app
         run: dotnet publish -c Release -o published
 
