@@ -20,15 +20,16 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: |
-          dotnet nuget add source "https://nuget.pkg.github.com/fcampoa/index.json" --name "github-fcampoa" --username "fcampoa" --password "${{ secrets.GH_PACKAGES_TOKEN }}" --store-password-in-clear-text
-          dotnet restore
+        run: dotnet restore
+        env:
+          # Esta variable de entorno será usada por nuget.config
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name:  build
+      - name: Build .NET app
         run: dotnet build --no-restore
 
       - name: Publish .NET app
-        run: dotnet publish -c Release -o published
+        run: dotnet publish -c Release -o published --no-build
 
       - name: Deploy to Heroku
         env:
