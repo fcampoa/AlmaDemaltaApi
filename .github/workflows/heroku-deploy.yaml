@@ -44,7 +44,6 @@ jobs:
         run: |
           git config --global user.email "$HEROKU_EMAIL"
           git config --global user.name "github-actions[bot]"
-          git fetch --all --unshallow
           wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
           heroku git:remote -a $HEROKU_APP_NAME
           git add .
