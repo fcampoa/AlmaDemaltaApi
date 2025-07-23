@@ -23,7 +23,7 @@ jobs:
         run: dotnet restore
         env:
           # Esta variable de entorno será usada por nuget.config
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Build .NET app
         run: dotnet build --no-restore
