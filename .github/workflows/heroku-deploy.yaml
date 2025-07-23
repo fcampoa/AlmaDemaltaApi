@@ -29,7 +29,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Publish .NET app
-        run: dotnet publish -c Release -o published --no-build
+        run: dotnet publish AlmaDeMalta.Api.csproj -c Release -o published --no-build
 
       - name: Deploy to Heroku
         env:
