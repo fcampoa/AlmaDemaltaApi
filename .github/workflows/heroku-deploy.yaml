@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
@@ -42,6 +44,7 @@ jobs:
         run: |
           git config --global user.email "$HEROKU_EMAIL"
           git config --global user.name "github-actions[bot]"
+          git fetch --all --unshallow
           wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
           heroku git:remote -a $HEROKU_APP_NAME
           git add .
