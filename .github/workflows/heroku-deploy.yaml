@@ -1,0 +1,37 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Publish .NET app
+        run: dotnet publish -c Release -o published
+
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ alma-de-malta-api }}
+          HEROKU_EMAIL: ${{ felixcampoa@gmail.com }}
+        run: |
+          git config --global user.email "$HEROKU_EMAIL"
+          git config --global user.name "github-actions[bot]"
+          wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+          heroku git:remote -a $HEROKU_APP_NAME
+          git add .
+          git commit -m "Deploy from GitHub Actions" || echo "Nothing to commit"
+          git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:main
