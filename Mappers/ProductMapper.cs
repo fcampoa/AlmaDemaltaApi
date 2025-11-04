@@ -20,7 +20,9 @@ namespace AlmaDeMalta.api.Mappers;
                 Category = source.Category,
                 ImageUrl = source.ImageUrl,
                 Type = source.Type,
-                Unit = source.Unit
+                Unit = source.Unit,
+                Stock = source.Stock,
+                Availability = source.Availability,
             };
         }
 }
