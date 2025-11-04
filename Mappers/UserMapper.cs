@@ -14,8 +14,7 @@ public class UserMapper: Mapper<UserRequest, Response, User>
             Name = source.Name,
             Email = source.Email,
             AuthProviderId = source.AuthProviderId,
-            Phone = source.Phone,
-            Role = source.Role
+            Phone = source.Phone
         };
     }
 }
