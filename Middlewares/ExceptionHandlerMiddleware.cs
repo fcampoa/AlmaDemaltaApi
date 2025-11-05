@@ -9,7 +9,6 @@ namespace AlmaDeMalta.api.Middlewares;
         {
             await next(context);
 
-
         }
         catch (Exception ex)
         {
