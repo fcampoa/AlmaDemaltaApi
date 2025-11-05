@@ -26,7 +26,8 @@ namespace AlmaDeMalta.api.Services.Impl;
                 return Response.NotFound(InvalidInventoryMovementNotFoundMessage);
             }
             entity.Id = Guid.NewGuid();
-            await unitOfWork.GetRepository<InventoryMovements>().CreateAsync(entity);
+            var repo = unitOfWork.GetRepository<InventoryMovements>();
+        await repo.CreateAsync(entity);
 
             var stock = conversionService.Convert(entity.Quantity, entity.Unit, product.Unit);
             product.Stock += entity.IsIncoming ? stock : -stock;
